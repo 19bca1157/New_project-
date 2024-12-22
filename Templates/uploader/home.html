@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploaded Excel Files</title>
+    <style>
+        /* Add styling here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem auto;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .actions a {
+            margin-right: 10px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Uploaded Excel Files</h1>
+</header>
+<main>
+    <form method="get" style="margin-bottom: 20px;">
+        <label for="date">Filter by Date:</label>
+        <input type="date" name="date" value="{{ date_filter }}">
+        <button type="submit">Filter</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>File Name</th>
+                <th>Uploaded Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for file, sheets in files.items %}
+                <tr>
+                    <td>{{ file.file.name }}</td>
+                    <td>{{ file.uploaded_at }}</td>
+                    <td class="actions">
+                        <a href="{% url 'view_file' file.id %}">View</a>
+                        <a href="{% url 'delete_file' file.id %}" style="color: red;">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{% url 'upload_file' %}">Upload a New File</a>
+</main>
+</body>
+</html>
+
