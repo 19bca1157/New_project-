@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Header and Footer Example</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+  /* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Header Styles */
+.header {
+  background: #333;
+  color: #fff;
+  padding: 1rem 0;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+}
+
+.header .nav {
+  display: flex;
+}
+
+.header .nav-list {
+  display: flex;
+  list-style: none;
+}
+
+.header .nav-list li {
+  margin-left: 1rem;
+}
+
+.header .nav-list a {
+  text-decoration: none;
+  color: #fff;
+  padding: 0.5rem;
+  transition: background 0.3s;
+}
+
+.header .nav-list a:hover {
+  background: #555;
+  border-radius: 5px;
+}
+
+/* Mobile Menu */
+.nav-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Footer Styles */
+.footer {
+  background: #222;
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.footer .socials {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.footer .socials li {
+  margin: 0 0.5rem;
+}
+
+.footer .socials a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.footer .socials a:hover {
+  color: #007BFF;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .header .nav {
+    display: none;
+    flex-direction: column;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+}
+  
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <a href="#" class="logo">MyWebsite</a>
+      <nav class="nav" id="nav-menu">
+        <ul class="nav-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle">&#9776;</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section id="home">
+      <h1>Welcome to My Website</h1>
+      {% block content %}
+      {% endblock %}
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 MyWebsite. All Rights Reserved.</p>
+      <ul class="socials">
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+  const navToggle = document.getElementById('nav-toggle');
+  const navMenu = document.getElementById('nav-menu');
+  
+  navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('open');
+  });
+</script>
+</body>
+</html>

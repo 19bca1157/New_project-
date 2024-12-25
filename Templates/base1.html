@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile-Friendly Header</title>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .header {
+      background-color: #2e7d32;
+      color: white;
+      padding: 10px 20px;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      text-decoration: none;
+      font-size: 1.5rem;
+      color: white;
+    }
+
+    .nav {
+      display: none; /* Hide the menu initially on mobile */
+    }
+
+    .nav-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav-list li {
+      display: inline;
+    }
+
+    .nav-list a {
+      text-decoration: none;
+      color: white;
+      padding: 5px 10px;
+    }
+
+    .nav-list a:hover {
+      background-color: #1b5e20;
+      border-radius: 5px;
+    }
+
+    .nav-toggle {
+      display: none; /* Hide the toggle button on larger screens */
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .nav {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #2e7d32;
+        width: 100%;
+        padding: 10px 20px;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .nav.open {
+        transform: translateY(0); /* Show the menu when open */
+      }
+
+      .nav-list {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-toggle {
+        display: block; /* Show the toggle button on mobile */
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <a href="#" class="logo">MyWebsite</a>
+      <nav class="nav" id="nav-menu">
+        <ul class="nav-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <!-- Uncomment these for more links -->
+          <!-- <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li> -->
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle">&#9776;</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="home">
+      <h1>Welcome to My Website</h1>
+      <p>This is a demo of a mobile-friendly navigation header.</p>
+    </section>
+
+    <section id="about">
+      <h2>About Us</h2>
+      <p>We are passionate about creating responsive and accessible websites.</p>
+    </section>
+  </main>
+
+  <script>
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>

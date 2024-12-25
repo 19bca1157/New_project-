@@ -1,13 +1,17 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Excel File</title>
+    <title>Upload Excel File</title>< -->
+
+
+   
+   {% block upload %}
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom right, #4caf50, #81c784);
+            background: linear-gradient(to bottom right, #af4ca4, #81c784);
             color: #333;
             margin: 0;
             padding: 0;
@@ -30,10 +34,10 @@
         h1 {
             font-size: 1.5rem;
             margin-bottom: 20px;
-            color: #4caf50;
+            color: #af4c92a8;
         }
 
-        form {
+       form {
             margin: 20px 0;
         }
 
@@ -47,7 +51,7 @@
         }
 
         button {
-            background-color: #4caf50;
+            background-color: #af4ca4d1;
             color: white;
             border: none;
             cursor: pointer;
@@ -62,13 +66,13 @@
             display: inline-block;
             margin-top: 20px;
             text-decoration: none;
-            color: #4caf50;
+            color: #af4ca4d1;
             font-weight: bold;
             transition: color 0.3s;
         }
 
         a:hover {
-            color: #2e7d32;
+            color: #555;
         }
 
         @media (max-width: 480px) {
@@ -81,7 +85,7 @@
             }
         }
     </style>
-</head>
+   <!--</head>-->
 <body>
 <main>
     <h1>Upload Excel File</h1>
@@ -93,4 +97,4 @@
     <a href="{% url 'home' %}">Back to Home</a>
 </main>
 </body>
-</html>
+{% endblock upload %}
